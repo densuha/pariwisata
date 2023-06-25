@@ -45,7 +45,7 @@ navbar-light">
       <ul class="navbar-nav ml-auto">
       </ul>
     </nav>
-    
+
     <?php include '../sidebar.php'; ?>
 
     <div class="content-wrapper">
@@ -81,18 +81,18 @@ active">Tambah Data Social Media</li>
 
                 <label>Link Social Media</label>
                 <input type="text" name="link_post" class="form-control" placeholder="Masukan Link Social Media" required>
-              
+
               </div>
               <div class="form-group">
-              <div class="form-group">
-                <label>Pilih Icon</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" name="icon_post" class="form-control-file">
-                    
+                <div class="form-group">
+                  <label>Pilih Icon</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" name="gambar_post" class="form-control-file">
+
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </div>
         </div>

@@ -1,0 +1,24 @@
+body {
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.slide-center .carousel-inner {
+  width: 1665px;
+  height: 400px;
+}
+
+.slide-center .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

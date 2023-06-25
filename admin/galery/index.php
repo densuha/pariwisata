@@ -1,24 +1,21 @@
-<?php
-$page  = $_GET['page'];
- ?>
 <!DOCTYPE html>
 <html lang="en" <html>
 
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>data_barang</title>
+   <title>data Galery</title>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
    <!-- Font Awesome -->
-   <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
    <!-- Ionicons -->
    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
 s">
    <!-- Tempusdominus Bootstrap 4 -->
-   <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
    <!-- iCheck -->
-   <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
    <!-- JQVMap -->
    <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
    <!-- Theme style -->
@@ -35,7 +32,7 @@ ss">
 <body class="hold-transition sidebar-mini layout-fixed">
    <div class="wrapper">
 
-      <div class="preloader flex-column justify-content-center alignitems-center">
+      <div class="preloader flex-column justify-content-center alignitems-center">
          <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
       </div>
 
@@ -49,20 +46,20 @@ navbar-light">
          <ul class="navbar-nav ml-auto">
          </ul>
       </nav>
-<?php include '../sidebar.php'; ?>
-      
+
+      <?php include '../sidebar.php'; ?>
       <div class="content-wrapper">
          <div class="content-header">
             <div class="container-fluid">
                <div class="row mb-2">
                   <div class="col-sm-6">
-                     <h1 class="m-0">Data Barang</h1>
+                     <h1 class="m-0">Galery</h1>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                      <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="../menu/index.php?page=home">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active">Data
-                           Barang</li>
+                           Galery</li>
                      </ol>
                   </div>
                </div>
@@ -72,8 +69,8 @@ navbar-light">
          <section class="content">
             <div class="card">
                <div class="card-header">
-                  <h3 class="card-title">Tabel Data Barang</h3>
-                  <a href="tambah.php?page=barang" class="btn btn-primary 
+                  <h3 class="card-title">Tabel Galery</h3>
+                  <a href="tambah.php?page=social" class="btn btn-primary 
 float-right">Tambah Data</a>
                </div>
                <!-- /.card-header -->
@@ -82,37 +79,27 @@ float-right">Tambah Data</a>
                      <thead>
                         <tr>
                            <th style="width: 10px">No</th>
-                           <th>Nama Barang</th>
-                           <th>Deskripsi</th>
-                           <th>Harga</th>
-                           <th class="text-center">Kategori</th>
-                           <th class="text-center">Gambar</th>
-                           <th class="text-center">Aksi</th>
+                           <th>Icon Galery</th>
+                           <th>Aksi</th>
                         </tr>
                      </thead>
                      <tbody>
                         <?php
                         include '../../koneksi.php';
                         $no = 1;
-                        $query = mysqli_query($koneksi, "SELECT data_barang.* ,kategori.nama_kategori
-                        FROM data_barang
-                        INNER JOIN kategori ON data_barang.id_kategori = kategori.id
-                        ORDER BY id DESC");
-                        while ($data = mysqli_fetch_array($query)) {
+                        $query = mysqli_query($koneksi, "SELECT * FROM galery");
+                        while ($data =
+                           mysqli_fetch_array($query)
+                        ) {
                         ?>
                            <tr>
                               <td><?= $no++; ?></td>
-                              <td><?= $data['nama_barang'];
-                                    ?></td>
-                              <td><?= $data['deskripsi']; ?></td>
-                              <td><?= $data['harga']; ?></td>
-                              <td><?= $data['nama_kategori']; ?></td>
                               <td class="text-center"><img width="100" src="gambar/<?= $data['gambar']; ?>" width="100px"></td>
                               <td class="text-center">
                                  <a href="edit.php?id=<?=
-                                                      $data['id']; ?>&page=barang" class="btn btn-warning">Edit</a>
+                                                      $data['id']; ?>&page=galery" class="btn btn-warning">Edit</a>
                                  <a href="proses_hapus.php?id=<?=
-                                                               $data['id']; ?>&page=barang" class="btn btndanger">Hapus</a>
+                                                               $data['id']; ?>&page=galery" class="btn btndanger">Hapus</a>
                               </td>
                            </tr>
                         <?php }
@@ -141,7 +128,7 @@ float-right">Tambah Data</a>
    <!-- jQuery -->
    <script src="../../assets/plugins/jquery/jquery.min.js"></script>
    <!-- jQuery UI 1.11.4 -->
-   <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
+   <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
 >
  <script>
@@ -157,14 +144,14 @@ float-right">Tambah Data</a>
    <script src="../../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
    <script src="../../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
    <!-- jQuery Knob Chart -->
-   <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
+   <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
    <!-- daterangepicker -->
    <script src="../../assets/plugins/moment/moment.min.js"></script>
    <script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
    <!-- Tempusdominus Bootstrap 4 -->
-   <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
+   <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
    <!-- Summernote -->
-   <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
+   <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
    <!-- overlayScrollbars -->
    <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
 min.js"></script>

@@ -23,10 +23,10 @@ $page  = $_GET['page'];
         </li>
 
         <li class="nav-item">
-          <a href="../data_barang/index.php?page=barang" class="nav-link  <?php if ($page == 'barang') { ?>active<?php } ?>">
+          <a href="../destinasi/index.php?page=destinasi" class="nav-link  <?php if ($page == 'destinasi') { ?>active<?php } ?>">
             <i class="nav-icon far fa-image"></i>
             <p>
-              Data Barang
+              Destinasi
             </p>
           </a>
         </li>
@@ -50,15 +50,6 @@ $page  = $_GET['page'];
         </li>
 
         <li class="nav-item">
-          <a href="../twitter/index.php?page=twitter" class="nav-link  <?php if ($page == 'twitter') { ?>active<?php } ?>">
-            <i class="nav-icon far fa-image"></i>
-            <p>
-              Twitter
-            </p>
-          </a>
-        </li>
-
-        <li class="nav-item">
           <a href="../about/index.php?page=about" class="nav-link  <?php if ($page == 'about') { ?>active<?php } ?>">
             <i class="nav-icon far fa-image"></i>
             <p>
@@ -66,9 +57,16 @@ $page  = $_GET['page'];
             </p>
           </a>
         </li>
-
         <li class="nav-item">
           <a href="../slider/index.php?page=slider" class="nav-link  <?php if ($page == 'slider') { ?>active<?php } ?>">
+            <i class="nav-icon far fa-image"></i>
+            <p>
+              Galery
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../galery/index.php?page=slider" class="nav-link  <?php if ($page == 'slider') { ?>active<?php } ?>">
             <i class="nav-icon far fa-image"></i>
             <p>
               Slider

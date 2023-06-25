@@ -1,6 +1,6 @@
 <?php
 $page  = $_GET['page'];
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en" <html>
 
@@ -49,79 +49,79 @@ navbar-light">
          <ul class="navbar-nav ml-auto">
          </ul>
       </nav>
-<?php include '../sidebar.php'; ?>
-<!-- /.col -->
+      <?php include '../sidebar.php'; ?>
+      <!-- /.col -->
 
-         <!-- MAIN CONTENT -->
-         <div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-5 col-3">
+      <!-- MAIN CONTENT -->
+      <div class="content">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-5 col-3">
 
-        <div class="small-box bg-info">
-          <div class="inner">
-            <h3></h3>
-            <p>data barang</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-boxes"></i>
-          </div>
-          <a href="<?= $base_url ?>/data_barang/index.php?page=barang" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
-      </div>
-               <!-- /.card-header -->
-
-               <!-- /.card-body -->
-               <div class="card-footer clearfix">
+                  <div class="small-box bg-info">
+                     <div class="inner">
+                        <h3></h3>
+                        <p>destinasi</p>
+                     </div>
+                     <div class="icon">
+                        <i class="ion ion-boxes"></i>
+                     </div>
+                     <a href="<?= $base_url ?>/destinasi/index.php?page=destinasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
                </div>
             </div>
+            <!-- /.card-header -->
+
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+            </div>
+         </div>
          </section>
          <!-- MAIN CONTENT -->
-         
 
-      <footer class="main-footer">
-         <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-         All rights reserved.
-         <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0
-         </div>
-      </footer>
-      <aside class="control-sidebar control-sidebar-dark">
-      </aside>
-   </div>
-   <!-- jQuery -->
-   <script src="../../assets/plugins/jquery/jquery.min.js"></script>
-   <!-- jQuery UI 1.11.4 -->
-   <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
-   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
+
+         <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+               <b>Version</b> 3.2.0
+            </div>
+         </footer>
+         <aside class="control-sidebar control-sidebar-dark">
+         </aside>
+      </div>
+      <!-- jQuery -->
+      <script src="../../assets/plugins/jquery/jquery.min.js"></script>
+      <!-- jQuery UI 1.11.4 -->
+      <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
+      <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
 >
  <script>
  $.widget.bridge('uibutton', $.ui.button)
  </script>
 <!-- Bootstrap 4 -->
-   <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-   <!-- ChartJS -->
-   <script src="../../assets/plugins/chart.js/Chart.min.js"></script>
-   <!-- Sparkline -->
-   <script src="../../assets/plugins/sparklines/sparkline.js"></script>
-   <!-- JQVMap -->
-   <script src="../../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
-   <script src="../../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-   <!-- jQuery Knob Chart -->
-   <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
-   <!-- daterangepicker -->
-   <script src="../../assets/plugins/moment/moment.min.js"></script>
-   <script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
-   <!-- Tempusdominus Bootstrap 4 -->
-   <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
-   <!-- Summernote -->
-   <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
-   <!-- overlayScrollbars -->
-   <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
+      <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- ChartJS -->
+      <script src="../../assets/plugins/chart.js/Chart.min.js"></script>
+      <!-- Sparkline -->
+      <script src="../../assets/plugins/sparklines/sparkline.js"></script>
+      <!-- JQVMap -->
+      <script src="../../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+      <script src="../../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+      <!-- jQuery Knob Chart -->
+      <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
+      <!-- daterangepicker -->
+      <script src="../../assets/plugins/moment/moment.min.js"></script>
+      <script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
+      <!-- Tempusdominus Bootstrap 4 -->
+      <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
+      <!-- Summernote -->
+      <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
+      <!-- overlayScrollbars -->
+      <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
 min.js"></script>
-   <!-- AdminLTE App -->
-   <script src="../../assets/dist/js/adminlte.js"></script>
+      <!-- AdminLTE App -->
+      <script src="../../assets/dist/js/adminlte.js"></script>
 </body>
 
 </html>

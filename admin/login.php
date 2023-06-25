@@ -5,7 +5,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 if (isset($_SESSION['username'])) {
-  header('location: dashboard.php');
+  header('location: menu/index.php');
 }
 
 if (isset($_POST['submit'])) {
@@ -15,14 +15,14 @@ if (isset($_POST['submit'])) {
   $password = md5($_POST['password']);
 
   $sql = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
-  $result = mysqli_query($conn, $sql);
+  $result = mysqli_query($koneksi, $sql);
 
   if ($result->num_rows > 0) {
     $row = mysqli_fetch_array($result);
     $_SESSION['username'] = $row['username'];
     $_SESSION['id'] = $row['id'];
 
-    header('location: dashboard.php');
+    header('location: menu/index.php');
     exit();
   } else {
     echo "<script>alert('Username salah')</script>";

@@ -2,9 +2,9 @@
 // Koneksi ke database
 include 'koneksi.php';
 
-// Query untuk mengambil data destinasi dari tabel "destinasi"
+
 $query = "SELECT * FROM destinasi";
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($koneksi, $query);
 ?>
 
 <!DOCTYPE html>
@@ -15,21 +15,26 @@ $result = mysqli_query($conn, $query);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Pariwisata</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <?php include './admin/header/header.php'; ?> <!-- File navbar.php -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <?php
+    include "./admin/header/header.php";
+    ?>
+  </nav>
 
   <header class="header-section">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide slide-center" data-bs-ride="carousel">
       <ol class="carousel-indicators">
         <?php
-        // Loop through the data to create the carousel indicators
+
         $active = "active";
-        while ($row = mysqli_fetch_assoc($result)) {
-          $destinasiId = $row['destinasi_id'];
+        $destinasiCount = mysqli_num_rows($result);
+        for ($i = 0; $i < $destinasiCount; $i++) {
         ?>
-          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $destinasiId - 1; ?>" class="<?php echo $active; ?>"></li>
+          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $i; ?>" class="<?php echo $active; ?>"></li>
         <?php
           $active = "";
         }
@@ -37,30 +42,32 @@ $result = mysqli_query($conn, $query);
       </ol>
       <div class="carousel-inner">
         <?php
-        // Reset the result pointer to the beginning
+
         mysqli_data_seek($result, 0);
 
-        // Loop through the data to create the carousel items
+
         $active = "active";
         while ($row = mysqli_fetch_assoc($result)) {
-          $destinasiFoto = $row['foto'];
+          $destinasiId = $row['id'];
+          $destinasigambar = $row['gambar'];
         ?>
           <div class="carousel-item <?php echo $active; ?>">
-            <img src="<?php echo $destinasiFoto; ?>" class="d-block w-100" alt="Destinasi <?php echo $destinasiId; ?>">
+            <img src="./admin/destinasi/gambar/<?php echo $destinasigambar; ?>" class="d-block w-1" alt="Destinasi <?php echo $destinasiId; ?>">
           </div>
-        <?php
+      </div>
+    <?php
           $active = "";
         }
-        ?>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
+    ?>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
     </div>
   </header>
 
@@ -74,7 +81,6 @@ $result = mysqli_query($conn, $query);
           </div>
         </div>
       </form>
-      <a href="#" class="btn btn-primary btn-lg">Mulai Mencari Destinasi</a>
     </div>
   </section>
 
@@ -83,17 +89,14 @@ $result = mysqli_query($conn, $query);
       <h2 class="mb-4">Destinasi Terpopuler</h2>
       <div class="row">
         <?php
-        // Reset the result pointer to the beginning
         mysqli_data_seek($result, 0);
-
-        // Loop through the data to create the destination cards
         while ($row = mysqli_fetch_assoc($result)) {
           $destinasiNama = $row['nama_destinasi'];
-          $destinasiFoto = $row['foto'];
+          $destinasigambar = $row['gambar'];
         ?>
           <div class="col-md-4">
             <div class="card mb-4">
-              <img src="<?php echo $destinasiFoto; ?>" class="card-img-top" alt="<?php echo $destinasiNama; ?>">
+              <img src="./admin/destinasi/gambar/<?php echo $destinasigambar; ?>" class="card-img-top" alt="<?php echo $destinasiNama; ?>">
               <div class="card-body">
                 <h5 class="card-title"><?php echo $destinasiNama; ?></h5>
                 <p class="card-text">Deskripsi destinasi</p>

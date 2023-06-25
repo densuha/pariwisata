@@ -4,13 +4,11 @@ include '../../koneksi.php';
 //ambil id dari url
 $id = $_GET['id'];
 //ambil data dari database
-$query = mysqli_query($koneksi, "SELECT * FROM tb_twitter WHERE id 
+$query = mysqli_query($koneksi, "SELECT * FROM galery WHERE id 
 = '$id'");
 $data = mysqli_fetch_array($query);
-$judul = $data['judul'];
-$isi = $data['isi'];
-
 //
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,19 +16,19 @@ $isi = $data['isi'];
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edit Data twitter</title>
+  <title>Edit Data Galery</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
 s">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
@@ -48,7 +46,7 @@ ss">
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-    <div class="preloader flex-column justify-content-center alignitems-center">
+    <div class="preloader flex-column justify-content-center alignitems-center">
       <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
     <nav class="main-header navbar navbar-expand navbar-white 
@@ -63,19 +61,19 @@ navbar-light">
     </nav>
 
     <?php include '../sidebar.php'; ?>
-    
+
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Edit Data twitter</h1>
+              <h1 class="m-0">Edit Data Galery</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index.php?page=twitter">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.php?page=Galery">Home</a></li>
                 <li class="breadcrumb-item active">Edit
-                  Data twitter</li>
+                  Data Galery</li>
               </ol>
             </div>
           </div>
@@ -85,7 +83,7 @@ navbar-light">
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data twitter</h3>
+            <h3 class="card-title">Form Data Galery</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -94,22 +92,29 @@ navbar-light">
               <input type="hidden" name="id" value="<?=
                                                     $id ?>">
               <div class="form-group">
-                <label>Nama twitter</label>
-                <input type="text" name="judul_post" class="form-control" placeholder="Masukan Nama Judul" value="<?= $judul?>" required>
-              </div>
-              <div class="form-group">
-                <label>Isi twitter</label>
-                <textarea name="isi_post" class="form-control" rows="3" required><?= $isi
-                                                                                        ?></textarea>
+                <label>Nama Galery</label>
+                <input type="text" name="nama_sosmed_post" class="form-control" placeholder="Masukan Nama Galery" value="<?= $nama_sosmed ?>" required>
+                <label>Link Galery</label>
+                <input type="text" name="link_post" class="form-control" placeholder="Masukan Link Galery" value="<?= $link ?>" required>
+
               </div>
             </div>
             <div class="form-group">
+            </div>
+            <div class="form-group">
+              <label>Pilih Icon</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" name="icon_post" class="custom-file-input" value="<?= $icon ?> required>
+                    <label class=" custom-filelabel">Pilih File Icon</label>
+                </div>
+              </div>
             </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
           <button type="submit" class="btn btnprimary">Simpan</button>
-          <a href="index.php?page=twitter" type="button" class="btn 
+          <a href="index.php?page=Galery" type="button" class="btn 
 btn-default">kembali</a>
         </div>
         </form>

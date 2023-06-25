@@ -4,7 +4,7 @@ include '../../koneksi.php';
 //ambil id dari url
 $id = $_GET['id'];
 //ambil data dari database
-$query = mysqli_query($koneksi, "SELECT * FROM tb_social WHERE id 
+$query = mysqli_query($koneksi, "SELECT * FROM social WHERE id 
 = '$id'");
 $data = mysqli_fetch_array($query);
 $nama_sosmed = $data['nama_sosmed'];
@@ -63,7 +63,7 @@ navbar-light">
     </nav>
 
     <?php include '../sidebar.php'; ?>
-    
+
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
@@ -98,20 +98,20 @@ navbar-light">
                 <input type="text" name="nama_sosmed_post" class="form-control" placeholder="Masukan Nama Social Media" value="<?= $nama_sosmed ?>" required>
                 <label>Link Social Media</label>
                 <input type="text" name="link_post" class="form-control" placeholder="Masukan Link Social Media" value="<?= $link ?>" required>
-              
+
               </div>
             </div>
             <div class="form-group">
             </div>
             <div class="form-group">
-                <label>Pilih Icon</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" name="icon_post" class="custom-file-input"value="<?= $icon ?> required>
-                    <label class="custom-filelabel">Pilih File Icon</label>
-                  </div>
+              <label>Pilih Icon</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" name="gambar_post" class="custom-file-input" value="<?= $icon ?> required>
+                    <label class=" custom-filelabel">Pilih File Icon</label>
                 </div>
               </div>
+            </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

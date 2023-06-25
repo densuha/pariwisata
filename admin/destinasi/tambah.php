@@ -1,10 +1,13 @@
+<?php
+$page  = $_GET['page'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tambah Data Barang</title>
+  <title>Tambah destinasi</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
@@ -45,21 +48,19 @@ navbar-light">
       <ul class="navbar-nav ml-auto">
       </ul>
     </nav>
-    
     <?php include '../sidebar.php'; ?>
-
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Tambah Data twitter</h1>
+              <h1 class="m-0">Tambah destinasi</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index.php?page=twitter">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.php?page=destinasi">Home</a></li>
                 <li class="breadcrumb-item 
-active">Tambah Data twitter</li>
+active">Tambah destinasi</li>
               </ol>
             </div>
           </div>
@@ -69,44 +70,62 @@ active">Tambah Data twitter</li>
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data twitter</h3>
+            <h3 class="card-title">Form destinasi</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="proses_simpan.php" method="post" enctype="multipart/form-data">
+          <form action="proses_simpan.php?page=destinasi" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
-                <label>Judul twitter</label>
-                <input type="text" name="judul_post" class="form-control" placeholder="Masukan Judul twitter" required>
+                <label>Nama destinasi</label>
+                <input type="text" name="nama_destinasi_post" class="form-control" placeholder="Masukan Nama destinasi" required>
               </div>
               <div class="form-group">
-                <label>Isi twitter</label>
-                <textarea name="isi_post" class="form-control" rows="3" required></textarea>
+                <label>Deskripsi</label>
+                <textarea name="deskripsi_post" class="form-control" rows="3" required></textarea>
               </div>
               <div class="form-group">
+                <select class="form-control" name="kategori_post" required>
+                  <option value="">Pilih kategori </option>
+                  <?php
+                  include '../../koneksi.php';
+                  $kategori = mysqli_query($koneksi, "SELECT *FROM kategori");
+                  while ($data = mysqli_fetch_array($kategori)) { ?>
+                    <option value="<?= $data['id'] ?>" <?php if ($data['id'] == $kategori) { ?> <?= 'selected' ?> <?php } ?>>
+                      <?= $data['nama_kategori'] ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Pilih Gambar</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" name="gambar_post" class="custom-file-input">
+                    <label class="custom-filelabel">Pilih File Gambar</label>
+                  </div>
+                </div>
               </div>
             </div>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <button type="submit" class="btn btnprimary">Simpan</button>
-          <a href="index.php?page=twitter" type="button" class="btn 
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btnprimary">Simpan</button>
+              <a href="index.php?page=destinasi" type="button" class="btn 
 btn-default">kembali</a>
+            </div>
+          </form>
         </div>
-        </form>
+      </section>
+      <!-- MAIN CONTENT -->
     </div>
-    </section>
-    <!-- MAIN CONTENT -->
-  </div>
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
-  <aside class="control-sidebar control-sidebar-dark">
-  </aside>
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
   </div>
   <!-- jQuery -->
   <script src="../../assets/plugins/jquery/jquery.min.js"></script>

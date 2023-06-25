@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" <html>
 
@@ -90,7 +89,7 @@ float-right">Tambah Data</a>
                         <?php
                         include '../../koneksi.php';
                         $no = 1;
-                        $query = mysqli_query($koneksi, "SELECT * FROM tb_social");
+                        $query = mysqli_query($koneksi, "SELECT * FROM social");
                         while ($data =
                            mysqli_fetch_array($query)
                         ) {
@@ -99,7 +98,7 @@ float-right">Tambah Data</a>
                               <td><?= $no++; ?></td>
                               <td><?= $data['nama_sosmed']; ?></td>
                               <td><?= $data['link']; ?></td>
-                              <td class="text-center"><img width="100" src="gambar/<?= $data['icon']; ?>" width="100px"></td>
+                              <td class="text-center"><img width="100" src="gambar/<?= $data['gambar']; ?>" width="100px"></td>
                               <td class="text-center">
                                  <a href="edit.php?id=<?=
                                                       $data['id']; ?>&page=social" class="btn btn-warning">Edit</a>

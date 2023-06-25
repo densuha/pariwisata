@@ -2,30 +2,25 @@
  //load koneksi database
  include '../../koneksi.php';
  
-$page  = $_GET['page']; 
-
  //ambil data dari form
- $nama_barang_post = $_POST['nama_barang_post'];
- $deskripsi_post = $_POST['deskripsi_post'];
- $harga_post = $_POST['harga_post'];
- $kategori_post = $_POST['kategori_post'];
- //
- 
+ $nama_sosmed_post = $_POST['nama_sosmed_post'];
+ $link_post = $_POST['link_post'];
+
  //proses upload gambar
- $nama_file = $_FILES['gambar_post']['name'];
- $source = $_FILES['gambar_post']['tmp_name'];
+ $nama_file = $_FILES['icon_post']['name'];
+ $source = $_FILES['icon_post']['tmp_name'];
  $folder = './gambar/';
 
  move_uploaded_file($source, $folder.$nama_file);
  //
+ //si
+
  //simpan data ke database
- $insert = mysqli_query($koneksi, "INSERT INTO data_barang VALUES (
+ $insert = mysqli_query($koneksi, "INSERT INTO tb_social VALUES (
  NULL,
- '$nama_barang_post',
- '$deskripsi_post',
- '$harga_post',
+ '$nama_sosmed_post',
  '$nama_file',
- '$kategori_post'
+ '$link_post'
  )");
  //
  //cek apakah proses simpan ke database berhasil
@@ -33,13 +28,13 @@ $page  = $_GET['page'];
  //jika berhasil tampilkan pesan berhasil simpan data
  echo "<script>
  alert('Data Berhasil Ditambahkan');
- window.location.href='index.php?page=barang';
+ window.location.href='index.php?page=social';
  </script>";
  }else{
  //jika gagal tampilkan pesan gagal simpan data
  echo "<script>
  alert('Data Gagal Ditambahkan');
- window.location.href='index.php?page=barang';
+ window.location.href='index.php?page=social';
  </script>";
  }
  //
