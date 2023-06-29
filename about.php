@@ -54,6 +54,7 @@ $result = mysqli_query($koneksi, $query);
           $aboutNama = $row['judul'];
           $NIM = $row['isi'];
           $aboutgambar = $row['gambar'];
+          $idabout = $row['id'];
         ?>
           <div class="col-md-3">
             <div class="card mb-4">
@@ -62,7 +63,7 @@ $result = mysqli_query($koneksi, $query);
                 <h5 class="card-title"><?php echo $aboutNama; ?></h5>
                 <h6 class="card-title"><?php echo $NIM; ?></h6>
                 <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Lihat Detail</a>
+                <a href="dabout.php?id=<?php echo $idabout; ?>" class="btn btn-primary">Lihat Detail</a>
               </div>
 
             </div>

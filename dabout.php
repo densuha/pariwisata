@@ -2,15 +2,17 @@
 // Koneksi ke database
 include 'koneksi.php';
 if (isset($_GET['id'])) {
-  $idDestinasi = $_GET['id'];
+  $idabout = $_GET['id'];
 } else {
   header('Location: index.php');
   exit();
 }
-$query = "SELECT * FROM destinasi WHERE id = $idDestinasi";
+
+$query = "SELECT * FROM about WHERE id = $idabout";
 $result = mysqli_query($koneksi, $query);
-$destinasi = mysqli_fetch_assoc($result);
-if (!$destinasi) {
+$about = mysqli_fetch_assoc($result);
+
+if (!$about) {
   header('Location: index.php');
   exit();
 }
@@ -22,7 +24,7 @@ if (!$destinasi) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <br>
-  <title>Artikel - <?php echo $destinasi['nama_destinasi']; ?></title>
+  <title>Artikel - <?php echo $about['judul']; ?></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/style.css">
@@ -45,7 +47,6 @@ if (!$destinasi) {
       padding-bottom: 0px;
     }
 
-
     .article-container p {
       flex-grow: 1;
     }
@@ -55,11 +56,9 @@ if (!$destinasi) {
       margin-bottom: 40px;
     }
   </style>
-
 </head>
 
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <?php
     include "./admin/header/header.php";
@@ -67,19 +66,20 @@ if (!$destinasi) {
   </nav>
   <br>
   <br>
-  <h1 class="article-title"><strong>Artikel</strong></h1>
-  <h2 style="text-align: center;"><?php echo $destinasi['nama_destinasi']; ?></h2>
+  <h1 class="article-title"><strong>About Tentang kelompok</strong></h1>
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6">
-        <img src="./admin/destinasi/gambar/<?php echo $destinasi['gambar']; ?>" alt="<?php echo $destinasi['nama_destinasi']; ?>" width="660" height="350">
+        <img src="./admin/about/gambar/<?php echo $about['gambar']; ?>" alt="<?php echo $about['judul']; ?>" width="470" height="350">
       </div>
       <div class="col-md-6">
         <div class="article-container">
-          <p><?php echo $destinasi['deskripsi']; ?></p>
+          <p><?php echo $about['judul']; ?></p>
+          <p><?php echo $about['isi']; ?></p>
+
         </div>
         <p>
-          <a href="index.php" class="btn btn-primary" style="
+          <a href="about.php" class="btn btn-primary" style="
     margin-left: 250px; 
     margin-top: 10px; ">kembali ke menu</a>
         </p>
