@@ -1218,7 +1218,7 @@ readers do not read off random characters that represent icons */
 .fa-dashcube:before {
   content: "\f210"; }
 
-.fa-database:before {
+.fa-config:before {
   content: "\f1c0"; }
 
 .fa-deaf:before {

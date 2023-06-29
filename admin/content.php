@@ -18,7 +18,10 @@
                         include "pariwisata/galery/index.php";
                         break;
                     case 'social':
-                        include "pariwisata/kategori/index.php";
+                        include "pariwisata/social/index.php";
+                        break;
+                    case 'logout':
+                        include "pariwisata/admin/logout.php";
                         break;
                     default:
                         echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";

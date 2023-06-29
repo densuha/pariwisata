@@ -98,41 +98,36 @@ navbar-light">
                 <input type="text" name="nama_sosmed_post" class="form-control" placeholder="Masukan Nama Social Media" value="<?= $nama_sosmed ?>" required>
                 <label>Link Social Media</label>
                 <input type="text" name="link_post" class="form-control" placeholder="Masukan Link Social Media" value="<?= $link ?>" required>
-
               </div>
-            </div>
-            <div class="form-group">
-            </div>
-            <div class="form-group">
-              <label>Pilih Icon</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" name="gambar_post" class="custom-file-input" value="<?= $icon ?> required>
-                    <label class=" custom-filelabel">Pilih File Icon</label>
+              <div class="form-group">
+                <label>Pilih Gambar</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" name="gambar_post" class="form-control-file">
+                  </div>
                 </div>
               </div>
             </div>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <button type="submit" class="btn btnprimary">Simpan</button>
-          <a href="index.php?page=social" type="button" class="btn 
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btnprimary">Simpan</button>
+              <a href="index.php?page=social" type="button" class="btn 
 btn-default">kembali</a>
+            </div>
+          </form>
         </div>
-        </form>
+      </section>
+      <!-- MAIN CONTENT -->
     </div>
-    </section>
-    <!-- MAIN CONTENT -->
-  </div>
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
-  <aside class="control-sidebar control-sidebar-dark">
-  </aside>
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
   </div>
   <!-- jQuery -->
   <script src="../../assets/plugins/jquery/jquery.min.js"></script>

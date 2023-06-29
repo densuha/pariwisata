@@ -4,23 +4,23 @@
 // By the Neo4j Team and contributors.
 // https://github.com/neo4j-contrib/CodeMirror
 
-(function(mod) {
+(function (mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror"], mod);
   else // Plain browser env
     mod(CodeMirror);
-})(function(CodeMirror) {
+})(function (CodeMirror) {
   "use strict";
-  var wordRegexp = function(words) {
+  var wordRegexp = function (words) {
     return new RegExp("^(?:" + words.join("|") + ")$", "i");
   };
 
-  CodeMirror.defineMode("cypher", function(config) {
-    var tokenBase = function(stream/*, state*/) {
+  CodeMirror.defineMode("cypher", function (config) {
+    var tokenBase = function (stream/*, state*/) {
       var ch = stream.next();
-      if (ch ==='"') {
+      if (ch === '"') {
         stream.match(/^[^"]*"/);
         return "string";
       }
@@ -50,7 +50,7 @@
         return "variable";
       }
     };
-    var pushContext = function(state, type, col) {
+    var pushContext = function (state, type, col) {
       return state.context = {
         prev: state.context,
         indent: state.indent,
@@ -58,7 +58,7 @@
         type: type
       };
     };
-    var popContext = function(state) {
+    var popContext = function (state) {
       state.indent = state.context.indent;
       return state.context = state.context.prev;
     };
@@ -67,11 +67,11 @@
     var funcs = wordRegexp(["abs", "acos", "allShortestPaths", "asin", "atan", "atan2", "avg", "ceil", "coalesce", "collect", "cos", "cot", "count", "degrees", "e", "endnode", "exp", "extract", "filter", "floor", "haversin", "head", "id", "keys", "labels", "last", "left", "length", "log", "log10", "lower", "ltrim", "max", "min", "node", "nodes", "percentileCont", "percentileDisc", "pi", "radians", "rand", "range", "reduce", "rel", "relationship", "relationships", "replace", "reverse", "right", "round", "rtrim", "shortestPath", "sign", "sin", "size", "split", "sqrt", "startnode", "stdev", "stdevp", "str", "substring", "sum", "tail", "tan", "timestamp", "toFloat", "toInt", "toString", "trim", "type", "upper"]);
     var preds = wordRegexp(["all", "and", "any", "contains", "exists", "has", "in", "none", "not", "or", "single", "xor"]);
     var keywords = wordRegexp(["as", "asc", "ascending", "assert", "by", "case", "commit", "constraint", "create", "csv", "cypher", "delete", "desc", "descending", "detach", "distinct", "drop", "else", "end", "ends", "explain", "false", "fieldterminator", "foreach", "from", "headers", "in", "index", "is", "join", "limit", "load", "match", "merge", "null", "on", "optional", "order", "periodic", "profile", "remove", "return", "scan", "set", "skip", "start", "starts", "then", "true", "union", "unique", "unwind", "using", "when", "where", "with", "call", "yield"]);
-    var systemKeywords = wordRegexp(["access", "active", "assign", "all", "alter", "as", "catalog", "change", "copy", "create", "constraint", "constraints", "current", "database", "databases", "dbms", "default", "deny", "drop", "element", "elements", "exists", "from", "grant", "graph", "graphs", "if", "index", "indexes", "label", "labels", "management", "match", "name", "names", "new", "node", "nodes", "not", "of", "on", "or", "password", "populated", "privileges", "property", "read", "relationship", "relationships", "remove", "replace", "required", "revoke", "role", "roles", "set", "show", "start", "status", "stop", "suspended", "to", "traverse", "type", "types", "user", "users", "with", "write"]);
+    var systemKeywords = wordRegexp(["access", "active", "assign", "all", "alter", "as", "catalog", "change", "copy", "create", "constraint", "constraints", "current", "config", "configs", "dbms", "default", "deny", "drop", "element", "elements", "exists", "from", "grant", "graph", "graphs", "if", "index", "indexes", "label", "labels", "management", "match", "name", "names", "new", "node", "nodes", "not", "of", "on", "or", "password", "populated", "privileges", "property", "read", "relationship", "relationships", "remove", "replace", "required", "revoke", "role", "roles", "set", "show", "start", "status", "stop", "suspended", "to", "traverse", "type", "types", "user", "users", "with", "write"]);
     var operatorChars = /[*+\-<>=&|~%^]/;
 
     return {
-      startState: function(/*base*/) {
+      startState: function (/*base*/) {
         return {
           tokenize: tokenBase,
           context: null,
@@ -79,7 +79,7 @@
           col: 0
         };
       },
-      token: function(stream, state) {
+      token: function (stream, state) {
         if (stream.sol()) {
           if (state.context && (state.context.align == null)) {
             state.context.align = false;
@@ -118,7 +118,7 @@
         }
         return style;
       },
-      indent: function(state, textAfter) {
+      indent: function (state, textAfter) {
         var firstChar = textAfter && textAfter.charAt(0);
         var context = state.context;
         if (/[\]\}]/.test(firstChar)) {
@@ -136,7 +136,7 @@
   });
 
   CodeMirror.modeExtensions["cypher"] = {
-    autoFormatLineBreaks: function(text) {
+    autoFormatLineBreaks: function (text) {
       var i, lines, reProcessedPortion;
       var lines = text.split("\n");
       var reProcessedPortion = /\s+\b(return|where|order by|match|with|skip|limit|create|delete|set)\b\s/g;

@@ -4,13 +4,13 @@ include '../../koneksi.php';
 //ambil id dari url
 $id = $_GET['id'];
 //ambil data dari database
-$query = mysqli_query($koneksi, "SELECT * FROM tb_about WHERE id 
+$query = mysqli_query($koneksi, "SELECT * FROM about WHERE id 
 = '$id'");
 $data = mysqli_fetch_array($query);
 $judul = $data['judul'];
 $isi = $data['isi'];
-
 //
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,19 +18,19 @@ $isi = $data['isi'];
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edit Data About</title>
+  <title>Edit Data about Media</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
 s">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
@@ -48,7 +48,7 @@ ss">
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-    <div class="preloader flex-column justify-content-center alignitems-center">
+    <div class="preloader flex-column justify-content-center alignitems-center">
       <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
     <nav class="main-header navbar navbar-expand navbar-white 
@@ -63,19 +63,19 @@ navbar-light">
     </nav>
 
     <?php include '../sidebar.php'; ?>
-    
+
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Edit Data About</h1>
+              <h1 class="m-0">Edit Data about</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php?page=about">Home</a></li>
                 <li class="breadcrumb-item active">Edit
-                  Data About</li>
+                  Data about </li>
               </ol>
             </div>
           </div>
@@ -85,7 +85,7 @@ navbar-light">
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data About</h3>
+            <h3 class="card-title">Form Data about </h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -94,38 +94,42 @@ navbar-light">
               <input type="hidden" name="id" value="<?=
                                                     $id ?>">
               <div class="form-group">
-                <label>Nama About</label>
-                <input type="text" name="judul_post" class="form-control" placeholder="Masukan Nama Judul" value="<?= $judul?>" required>
+                <label>Nama </label>
+                <input type="text" name="judul_post" class="form-control" placeholder="Masukan Nama about Media" value="<?= $judul ?>" required>
+                <label>NIM</label>
+                <input type="text" name="isi_post" class="form-control" placeholder="Masukan Link about Media" value="<?= $isi ?>" required>
+
               </div>
+
               <div class="form-group">
-                <label>Isi About</label>
-                <textarea name="isi_post" class="form-control" rows="3" required><?= $isi
-                                                                                        ?></textarea>
+                <label>Pilih Gambar</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" name="gambar_post" class="form-control-file">
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-            </div>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <button type="submit" class="btn btnprimary">Simpan</button>
-          <a href="index.php?page=about" type="button" class="btn 
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btnprimary">Simpan</button>
+              <a href="index.php?page=about" type="button" class="btn 
 btn-default">kembali</a>
+            </div>
+          </form>
         </div>
-        </form>
+      </section>
+      <!-- MAIN CONTENT -->
     </div>
-    </section>
-    <!-- MAIN CONTENT -->
-  </div>
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
-  <aside class="control-sidebar control-sidebar-dark">
-  </aside>
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
   </div>
   <!-- jQuery -->
   <script src="../../assets/plugins/jquery/jquery.min.js"></script>

@@ -85,7 +85,7 @@ active">Tambah Data Social Media</li>
               </div>
               <div class="form-group">
                 <div class="form-group">
-                  <label>Pilih Icon</label>
+                  <label>Pilih Gambar</label>
                   <div class="input-group">
                     <div class="custom-file">
                       <input type="file" name="gambar_post" class="form-control-file">

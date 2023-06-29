@@ -5,7 +5,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 if (isset($_SESSION['username'])) {
-  header('location: menu/index.php');
+  header('location: login.php');
 }
 
 if (isset($_POST['submit'])) {
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['username'] = $row['username'];
     $_SESSION['id'] = $row['id'];
 
-    header('location: menu/index.php');
+    header('location: menu/index.php?page=home');
     exit();
   } else {
     echo "<script>alert('Username salah')</script>";
@@ -41,17 +41,17 @@ if (isset($_POST['submit'])) {
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css" />
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
   <!-- Theme style -->
-  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css" />
 </head>
 
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="index2.html"><b>Dendi_</b><b>Suhada</b></a>
+      <a href="index2.html"><b>KELOMPOK 6</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -93,12 +93,6 @@ if (isset($_POST['submit'])) {
         </form>
       </div>
       <!-- /.social-auth-links -->
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
     </div>
     <!-- /.login-card-body -->
   </div>

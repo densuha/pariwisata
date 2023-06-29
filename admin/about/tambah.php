@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tambah Data Barang</title>
+  <title>Tambah Data About</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
@@ -45,7 +45,7 @@ navbar-light">
       <ul class="navbar-nav ml-auto">
       </ul>
     </nav>
-    
+
     <?php include '../sidebar.php'; ?>
 
     <div class="content-wrapper">
@@ -53,13 +53,13 @@ navbar-light">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Tambah Data About</h1>
+              <h1 class="m-0">Tambah Data about </h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php?page=about">Home</a></li>
                 <li class="breadcrumb-item 
-active">Tambah Data About</li>
+active">Tambah Data about </li>
               </ol>
             </div>
           </div>
@@ -69,21 +69,30 @@ active">Tambah Data About</li>
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data About</h3>
+            <h3 class="card-title">Form Data about</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
           <form action="proses_simpan.php" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
-                <label>Judul About</label>
-                <input type="text" name="judul_post" class="form-control" placeholder="Masukan Judul About" required>
+                <label>Nama</label>
+                <input type="text" name="judul_post" class="form-control" placeholder="" required>
+
+                <label>NIM</label>
+                <input type="text" name="isi_post" class="form-control" placeholder="" required>
+
               </div>
               <div class="form-group">
-                <label>Isi About</label>
-                <textarea name="isi_post" class="form-control" rows="3" required></textarea>
-              </div>
-              <div class="form-group">
+                <div class="form-group">
+                  <label>Pilih Icon</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" name="gambar_post" class="form-control-file">
+
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
         </div>

@@ -19,8 +19,8 @@ move_uploaded_file($source, $folder . $nama_file);
 $insert = mysqli_query($koneksi, "INSERT INTO social VALUES (
  NULL,
  '$nama_sosmed_post',
- '$nama_file',
- '$link_post'
+ '$link_post',
+ '$nama_file'
  )");
 //
 //cek apakah proses simpan ke database berhasil

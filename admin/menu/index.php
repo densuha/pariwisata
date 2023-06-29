@@ -1,35 +1,41 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+include("../koneksi.php");
+$base_url = "http://localhost/pariwisata/admin";
 $page  = $_GET['page'];
+
+$kategori = mysqli_query($koneksi, 'SELECT count(*) jml FROM kategori');
+$row_kategori = mysqli_fetch_assoc($kategori);
+$destinasi = mysqli_query($koneksi, 'SELECT count(*) jml FROM destinasi');
+$row_destinasi = mysqli_fetch_assoc($destinasi);
+$galery = mysqli_query($koneksi, 'SELECT count(*) jml FROM galery');
+$row_galery = mysqli_fetch_assoc($galery);
+$social = mysqli_query($koneksi, 'SELECT count(*) jml FROM social');
+$row_social = mysqli_fetch_assoc($social);
+$about = mysqli_query($koneksi, 'SELECT count(*) jml FROM about');
+$row_about = mysqli_fetch_assoc($about);
 ?>
+
 <!DOCTYPE html>
 <html lang="en" <html>
 
 <head>
    <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Dashboard</title>
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
-0i,700&display=fallback">
-   <!-- Font Awesome -->
-   <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
-   <!-- Ionicons -->
-   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
-s">
-   <!-- Tempusdominus Bootstrap 4 -->
-   <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-   <!-- iCheck -->
-   <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
-   <!-- JQVMap -->
-   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Dashoard</title>
+   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+   <!-- Google Font: Source Sans Pro -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+   <!-- Font Awesome Icons -->
+   <link rel="stylesheet" href="../../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/fontawesome-free/css/all.min.css">
+
    <!-- Theme style -->
    <link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
-   <!-- overlayScrollbars -->
-   <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.c
-ss">
-   <!-- Daterange picker -->
-   <link rel="stylesheet" href="../../assets/plugins/daterangepicker/daterangepicker.css">
-   <!-- summernote -->
-   <link rel="stylesheet" href="../../assets/plugins/summernote/summernote-bs4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -38,90 +44,72 @@ ss">
       <div class="preloader flex-column justify-content-center alignitems-center">
          <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
       </div>
-
-      <nav class="main-header navbar navbar-expand navbar-white 
-navbar-light">
-         <ul class="navbar-nav">
-            <li class="nav-item">
-               <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-         </ul>
-         <ul class="navbar-nav ml-auto">
-         </ul>
-      </nav>
+      <?php include '../navbar.php'; ?>
       <?php include '../sidebar.php'; ?>
       <!-- /.col -->
 
       <!-- MAIN CONTENT -->
-      <div class="content">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-lg-5 col-3">
+      <?php include 'content.php'; ?>
 
-                  <div class="small-box bg-info">
-                     <div class="inner">
-                        <h3></h3>
-                        <p>destinasi</p>
-                     </div>
-                     <div class="icon">
-                        <i class="ion ion-boxes"></i>
-                     </div>
-                     <a href="<?= $base_url ?>/destinasi/index.php?page=destinasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-               </div>
-            </div>
-            <!-- /.card-header -->
+      <?php include 'grafik.php'; ?>
+      </section>
+      <!-- MAIN CONTENT -->
+      <?php include '../footer.php'; ?>
+      <aside class="control-sidebar control-sidebar-dark">
+      </aside>
+   </div>
+   <!-- jQuery -->
+   <script src="../../assets/plugins/jquery/jquery.min.js"></script>
+   <script src="../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+   <script src="../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+   <script src="../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+   <script src="../../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+   <script src="../../assets/plugins/jszip/jszip.min.js"></script>
+   <script src="../../assets/plugins/pdfmake/pdfmake.min.js"></script>
+   <script src="../../assets/plugins/pdfmake/vfs_fonts.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+   <!-- Bootstrap 4 -->
+   <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- AdminLTE App -->
+   <script src="../../assets/dist/js/adminlte.min.js"></script>
+   <script>
+      function confirmDelete() {
+         if (confirm('Anda yakin menghapus data?')) {
+            //action confirmed
+            alert('Data berhasil dihapus');
+         } else {
+            //action cancelled
+            alert('Data batal di hapus');
+            return false;
 
-            <!-- /.card-body -->
-            <div class="card-footer clearfix">
-            </div>
-         </div>
-         </section>
-         <!-- MAIN CONTENT -->
+         }
+      }
+   </script>
+   <script>
+      $(function() {
+         $("#tabel").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
+         $('#tabel-simpel').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+         });
+      });
+   </script>
 
-         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-               <b>Version</b> 3.2.0
-            </div>
-         </footer>
-         <aside class="control-sidebar control-sidebar-dark">
-         </aside>
-      </div>
-      <!-- jQuery -->
-      <script src="../../assets/plugins/jquery/jquery.min.js"></script>
-      <!-- jQuery UI 1.11.4 -->
-      <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
-      <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
->
- <script>
- $.widget.bridge('uibutton', $.ui.button)
- </script>
-<!-- Bootstrap 4 -->
-      <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- ChartJS -->
-      <script src="../../assets/plugins/chart.js/Chart.min.js"></script>
-      <!-- Sparkline -->
-      <script src="../../assets/plugins/sparklines/sparkline.js"></script>
-      <!-- JQVMap -->
-      <script src="../../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
-      <script src="../../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-      <!-- jQuery Knob Chart -->
-      <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
-      <!-- daterangepicker -->
-      <script src="../../assets/plugins/moment/moment.min.js"></script>
-      <script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
-      <!-- Tempusdominus Bootstrap 4 -->
-      <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
-      <!-- Summernote -->
-      <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
-      <!-- overlayScrollbars -->
-      <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
-min.js"></script>
-      <!-- AdminLTE App -->
-      <script src="../../assets/dist/js/adminlte.js"></script>
 </body>
 
 </html>

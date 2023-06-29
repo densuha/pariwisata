@@ -29,11 +29,12 @@ if (isset($_GET['kategori'])) {
   <title>Website Pariwisata</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <?php include './admin/header/header.php'; ?> <!-- File navbar.php -->
-
+  <br>
   <section class="search-section py-5">
     <div class="container">
       <h2 class="mb-4">Cari Destinasi Berdasarkan Kategori</h2>
@@ -66,8 +67,8 @@ if (isset($_GET['kategori'])) {
         ?>
           <div class="col-md-4">
             <div class="card mb-4">
-              <img src="./admin/destinasi/gambar/<?php echo $destinasigambar; ?>" class="card-img-top" alt="<?php echo $destinasiNama; ?>">
-              <div class="card-body">
+              <img width="100" height="300" src="./admin/destinasi/gambar/<?php echo $destinasigambar; ?>" class="card-img-top" alt="<?php echo $destinasiNama; ?>">
+              <div class=" card-body">
                 <h5 class="card-title"><?php echo $destinasiNama; ?></h5>
                 <p class="card-text">Deskripsi destinasi</p>
                 <a href="#" class="btn btn-primary">Lihat Detail</a>
@@ -80,7 +81,7 @@ if (isset($_GET['kategori'])) {
       </div>
     </div>
   </section>
-
+  <?php include './admin/footer.php'; ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

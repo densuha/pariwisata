@@ -1,14 +1,15 @@
 <?php
+$page  = $_GET['page'];
 //load koneksi database
 include '../../koneksi.php';
 //ambil id dari url
 $id = $_GET['id'];
 //ambil data dari database
-$query = mysqli_query($koneksi, "SELECT * FROM galery WHERE id 
-= '$id'");
+$query = mysqli_query($koneksi, "SELECT * FROM galery WHERE id = '$id'");
 $data = mysqli_fetch_array($query);
+$nama_gambar_post = $data['nama_gambar'];
+$gambar = $data['gambar'];
 //
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,26 +17,24 @@ $data = mysqli_fetch_array($query);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edit Data Galery</title>
+  <title>Edit Gambar</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
 s">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-
-
   <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.c
 ss">
   <!-- Daterange picker -->
@@ -46,7 +45,7 @@ ss">
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-    <div class="preloader flex-column justify-content-center alignitems-center">
+    <div class="preloader flex-column justify-content-center alignitems-center">
       <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
     <nav class="main-header navbar navbar-expand navbar-white 
@@ -71,9 +70,8 @@ navbar-light">
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index.php?page=Galery">Home</a></li>
-                <li class="breadcrumb-item active">Edit
-                  Data Galery</li>
+                <li class="breadcrumb-item"><a href="index.php?page=galery">Home</a></li>
+                <li class="breadcrumb-item active">Edit Data Galery </li>
               </ol>
             </div>
           </div>
@@ -87,35 +85,30 @@ navbar-light">
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="proses_edit.php" method="post" enctype="multipart/form-data">
+          <form action="proses_edit.php?page=galery" method="post" enctype="multipart/form-data">
             <div class="card-body">
-              <input type="hidden" name="id" value="<?=
-                                                    $id ?>">
-              <div class="form-group">
-                <label>Nama Galery</label>
-                <input type="text" name="nama_sosmed_post" class="form-control" placeholder="Masukan Nama Galery" value="<?= $nama_sosmed ?>" required>
-                <label>Link Galery</label>
-                <input type="text" name="link_post" class="form-control" placeholder="Masukan Link Galery" value="<?= $link ?>" required>
+              <input type="hidden" name="id" value="<?= $id ?>">
 
+              <div class="form-group">
+                <label>Nama Gambar</label>
+                <input type="text" name="nama_gambar_post" class="form-control" placeholder="Masukan Nama Gambar" value="<?= $nama_gambar_post ?>" required>
               </div>
-            </div>
-            <div class="form-group">
-            </div>
-            <div class="form-group">
-              <label>Pilih Icon</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" name="icon_post" class="custom-file-input" value="<?= $icon ?> required>
-                    <label class=" custom-filelabel">Pilih File Icon</label>
+              <div class="form-group">
+                <label>Pilih Gambar</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" name="gambar_post" class="form-control-file">
+                  </div>
                 </div>
               </div>
+            </div>
+            <div class="form-group">
             </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
           <button type="submit" class="btn btnprimary">Simpan</button>
-          <a href="index.php?page=Galery" type="button" class="btn 
-btn-default">kembali</a>
+          <a href="index.php?page=galery" type="button" class="btn btn-default">kembali</a>
         </div>
         </form>
     </div>

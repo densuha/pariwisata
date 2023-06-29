@@ -1,33 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en" <html>
 
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>data About</title>
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
-0i,700&display=fallback">
-   <!-- Font Awesome -->
-   <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
-   <!-- Ionicons -->
-   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
-s">
-   <!-- Tempusdominus Bootstrap 4 -->
-   <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-   <!-- iCheck -->
-   <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
-   <!-- JQVMap -->
-   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
+   <title>data about </title>
+   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+   <!-- Google Font: Source Sans Pro -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+   <!-- Font Awesome Icons -->
+   <link rel="stylesheet" href="../../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+   <link rel="stylesheet" href="../../assets/plugins/fontawesome-free/css/all.min.css">
    <!-- Theme style -->
    <link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
-   <!-- overlayScrollbars -->
-   <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.c
-ss">
-   <!-- Daterange picker -->
-   <link rel="stylesheet" href="../../assets/plugins/daterangepicker/daterangepicker.css">
-   <!-- summernote -->
-   <link rel="stylesheet" href="../../assets/plugins/summernote/summernote-bs4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -54,13 +41,13 @@ navbar-light">
             <div class="container-fluid">
                <div class="row mb-2">
                   <div class="col-sm-6">
-                     <h1 class="m-0">About</h1>
+                     <h1 class="m-0">about </h1>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                      <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active">Data
-                           About</li>
+                           about </li>
                      </ol>
                   </div>
                </div>
@@ -70,26 +57,27 @@ navbar-light">
          <section class="content">
             <div class="card">
                <div class="card-header">
-                  <h3 class="card-title">Tabel About</h3>
-                  
+                  <h3 class="card-title">Tabel about </h3>
+                  <a href="tambah.php?page=about" class="btn btn-primary 
+float-right">Tambah Data</a>
                </div>
                <!-- /.card-header -->
                <div class="card-body">
-                  <table class="table table-bordered" >
+                  <table class="table table-bordered">
                      <thead>
                         <tr>
-                           <th >No</th>
-                           <th>Nama About</th>
-                           <th>Isi About</th>
+                           <th style="width: 10px">No</th>
+                           <th>Nama </th>
+                           <th>NIM</th>
+                           <th>Icon </th>
                            <th>Aksi</th>
                         </tr>
-                  
                      </thead>
                      <tbody>
                         <?php
                         include '../../koneksi.php';
                         $no = 1;
-                        $query = mysqli_query($koneksi, "SELECT * FROM tb_about");
+                        $query = mysqli_query($koneksi, "SELECT * FROM about");
                         while ($data =
                            mysqli_fetch_array($query)
                         ) {
@@ -98,10 +86,12 @@ navbar-light">
                               <td><?= $no++; ?></td>
                               <td><?= $data['judul']; ?></td>
                               <td><?= $data['isi']; ?></td>
+                              <td class="text-center"><img width="100" src="gambar/<?= $data['gambar']; ?>" width="100px"></td>
                               <td class="text-center">
                                  <a href="edit.php?id=<?=
                                                       $data['id']; ?>&page=about" class="btn btn-warning">Edit</a>
-                                 
+                                 <a href="proses_hapus.php?id=<?=
+                                                               $data['id']; ?>&page=about" class="btn btndanger">Hapus</a>
                               </td>
                            </tr>
                         <?php }
@@ -128,37 +118,24 @@ navbar-light">
       </aside>
    </div>
    <!-- jQuery -->
+   <!-- jQuery -->
    <script src="../../assets/plugins/jquery/jquery.min.js"></script>
-   <!-- jQuery UI 1.11.4 -->
-   <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
-   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
->
- <script>
- $.widget.bridge('uibutton', $.ui.button)
- </script>
-<!-- Bootstrap 4 -->
+   <script src="../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+   <script src="../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+   <script src="../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+   <script src="../../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+   <script src="../../assets/plugins/jszip/jszip.min.js"></script>
+   <script src="../../assets/plugins/pdfmake/pdfmake.min.js"></script>
+   <script src="../../assets/plugins/pdfmake/vfs_fonts.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+   <script src="../../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+   <!-- Bootstrap 4 -->
    <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-   <!-- ChartJS -->
-   <script src="../../assets/plugins/chart.js/Chart.min.js"></script>
-   <!-- Sparkline -->
-   <script src="../../assets/plugins/sparklines/sparkline.js"></script>
-   <!-- JQVMap -->
-   <script src="../../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
-   <script src="../../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-   <!-- jQuery Knob Chart -->
-   <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
-   <!-- daterangepicker -->
-   <script src="../../assets/plugins/moment/moment.min.js"></script>
-   <script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
-   <!-- Tempusdominus Bootstrap 4 -->
-   <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
-   <!-- Summernote -->
-   <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
-   <!-- overlayScrollbars -->
-   <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
-min.js"></script>
    <!-- AdminLTE App -->
-   <script src="../../assets/dist/js/adminlte.js"></script>
+   <script src="../../assets/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

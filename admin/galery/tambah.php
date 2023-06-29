@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tambah Data Barang</title>
+  <title>Tambah Gambar</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
@@ -45,7 +45,7 @@ navbar-light">
       <ul class="navbar-nav ml-auto">
       </ul>
     </nav>
-    
+
     <?php include '../sidebar.php'; ?>
 
     <div class="content-wrapper">
@@ -53,13 +53,12 @@ navbar-light">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Tambah Data Social Media</h1>
+              <h1 class="m-0">Tambah Data Galery</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index.php?page=social">Home</a></li>
-                <li class="breadcrumb-item 
-active">Tambah Data Social Media</li>
+                <li class="breadcrumb-item"><a href="index.php?page=galery">Home</a></li>
+                <li class="breadcrumb-item active">Tambah Data Galery </li>
               </ol>
             </div>
           </div>
@@ -69,38 +68,30 @@ active">Tambah Data Social Media</li>
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data Social Media</h3>
+            <h3 class="card-title">Form Data Galery</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form action="proses_simpan.php" method="post" enctype="multipart/form-data">
+          <form action="proses_simpan.php?page=galery" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
-                <label>Nama Social Media</label>
-                <input type="text" name="nama_sosmed_post" class="form-control" placeholder="Masukan Nama Social Media" required>
-
-                <label>Link Social Media</label>
-                <input type="text" name="link_post" class="form-control" placeholder="Masukan Link Social Media" required>
-              
+                <label>Nama Social</label>
+                <input type="text" name="nama_gambar_post" class="form-control" placeholder="Masukan Nama Gambar" required>
               </div>
               <div class="form-group">
-              <div class="form-group">
-                <label>Pilih Icon</label>
+                <label>Pilih Gambar</label>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" name="icon_post" class="form-control-file">
-                    
+                    <input type="file" name="gambar_post" class="form-control-file">
                   </div>
                 </div>
-              </div>
               </div>
             </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
           <button type="submit" class="btn btnprimary">Simpan</button>
-          <a href="index.php?page=social" type="button" class="btn 
-btn-default">kembali</a>
+          <a href="index.php?page=galery" type="button" class="btn btn-default">kembali</a>
         </div>
         </form>
     </div>
